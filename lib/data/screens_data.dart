@@ -48,12 +48,12 @@ var screensData = [
   //   widget: BlogScreen(),
   //   primaryColor: Colors.deepOrangeAccent,
   //    ),
-  ScreenData(
-    icon: FontAwesomeIcons.palette,
-    tooltip: "Sketches",
-    widget: ArtScreen(),
-    primaryColor: Colors.green,
-  ),
+  // ScreenData(
+  //   icon: FontAwesomeIcons.palette,
+  //   tooltip: "Sketches",
+  //   widget: ArtScreen(),
+  //   primaryColor: Colors.green,
+  // ),
   ScreenData(
     icon: FontAwesomeIcons.solidIdCard,
     tooltip: "contact",
