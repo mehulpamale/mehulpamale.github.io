@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // ),
         Container(
           child: SingleChildScrollView(
-            physics: ClampingScrollPhysics(),
+            physics: BouncingScrollPhysics(),
             controller: actionBarController,
             child: Column(children: [
               ...screensData.map((item) => Container(
