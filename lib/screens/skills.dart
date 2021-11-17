@@ -33,7 +33,8 @@ class _SkillScreenState extends State<SkillScreen> {
       child: DefaultTextStyle(
         style: TextStyle(color: SkillsData.fontColor),
         child: Container(
-          margin: EdgeInsets.all(size.width / 38), // 1920 div 38 ~ 50
+          margin: EdgeInsets.all(size.width / 38),
+          // 1920 div 38 ~ 50
           padding: EdgeInsets.all(15),
           color: Colors.white70,
           alignment: Alignment.topCenter,
@@ -73,6 +74,7 @@ class SkillDetailView extends StatelessWidget {
       : print('Cant launch this url');
 
   SkillDetailView({required this.selectedSkill});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -370,6 +372,7 @@ class SkillDetailView extends StatelessWidget {
 
 class Gravatar extends StatelessWidget {
   final String imageUrl;
+
   const Gravatar({Key? key, required this.imageUrl}) : super(key: key);
 
   @override

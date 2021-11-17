@@ -252,7 +252,8 @@ For android projects I now prefer Kotlin, which is much more developer friendly 
     const SkillsFormat(
         skillName: "Google Cloud Platform",
         experienceTimeWithSkill: "1 Year",
-        details: """I have completed certification in Google Cloud Platform namely: Associate Cloud Engineer""",
+        details:
+            """I have completed certification in Google Cloud Platform namely: Associate Cloud Engineer""",
         certifications: [
           const CertificationData(
             certification:
@@ -367,6 +368,8 @@ For android projects I now prefer Kotlin, which is much more developer friendly 
 //         projects: []),
   ];
 }
+
+const resume_url = 'https://bit.ly/mehul-resume';
 
 class ContactData {
   static const bg_image = "assets/images/6contact.webp";

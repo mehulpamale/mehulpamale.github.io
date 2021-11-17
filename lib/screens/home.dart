@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/data/primary.dart';
-
 import 'package:portfolio/components/responsive_grid.dart';
+import 'package:portfolio/data/primary.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -47,7 +46,6 @@ class HomeScreen extends StatelessWidget {
                       radius: 128,
                       foregroundImage: NetworkImage(
                         HomeData.user_image,
-
                       ),
                       backgroundColor: Colors.transparent,
                       // child: Image.network(

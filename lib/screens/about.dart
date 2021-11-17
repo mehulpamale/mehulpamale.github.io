@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:portfolio/components/responsive_grid.dart';
 import 'package:portfolio/data/primary.dart';
 import 'package:portfolio/data/types.dart';
+
 // import 'package:responsive_framework/responsive_framework.dart';
 // import 'package:responsive_framework/responsive_row_column.dart';
 // import 'package:responsive_framework/responsive_wrapper.dart';
@@ -80,21 +81,20 @@ class AboutScreen extends StatelessWidget {
                   // rowSegments: 4,
 
                   children: [
-                    ...AboutData.experience.map((ex) => 
-                            ResponsiveGridCol(
-                              lg: 3,
-                              md: 4,
-                              sm: 6,
-                              child:  ExperienceTile(
-                                  size: size,
-                                  exp: ex,
-                                ),
-                            ),
-                          ),
+                    ...AboutData.experience.map(
+                      (ex) => ResponsiveGridCol(
+                        lg: 3,
+                        md: 4,
+                        sm: 6,
+                        child: ExperienceTile(
+                          size: size,
+                          exp: ex,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
-              
               HeaderRow(
                 icon: Icons.school,
                 heading: "Education",
@@ -122,14 +122,16 @@ class AboutScreen extends StatelessWidget {
                   // rowSegments: 4,
 
                   children: [
-                    ...AboutData.education.map((ed) => 
-                            ResponsiveGridCol(
-                              lg: 3,
-                              md: 4,
-                              sm: 6,
-                              child: EducationTIle(data: ed,),
-                            ),
-                          ),
+                    ...AboutData.education.map(
+                      (ed) => ResponsiveGridCol(
+                        lg: 3,
+                        md: 4,
+                        sm: 6,
+                        child: EducationTIle(
+                          data: ed,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -148,29 +150,29 @@ class EducationTIle extends StatelessWidget {
   }) : super(key: key);
 
   final EducationData data;
+
   @override
   Widget build(BuildContext context) {
     return Container(
       //width: 275,
       //height: 275,
-      margin: EdgeInsets.symmetric(vertical: 10,horizontal:10),
+      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-          color: data.color,
-          borderRadius: BorderRadius.circular(10)),
+          color: data.color, borderRadius: BorderRadius.circular(10)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal:8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Text(
               data.degree,
               style: TextStyle(
-                  color: data.fontColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                  ),
-                  softWrap: true,
+                color: data.fontColor,
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
+              softWrap: true,
             ),
           ),
           Padding(
@@ -181,7 +183,7 @@ class EducationTIle extends StatelessWidget {
                   color: data.fontColor,
                   fontWeight: FontWeight.bold,
                   fontSize: 15),
-                  softWrap: true,
+              softWrap: true,
             ),
           ),
           Padding(
@@ -192,7 +194,7 @@ class EducationTIle extends StatelessWidget {
                   color: data.fontColor,
                   fontWeight: FontWeight.bold,
                   fontSize: 13),
-                  softWrap: true,
+              softWrap: true,
             ),
           ),
         ],
@@ -203,6 +205,7 @@ class EducationTIle extends StatelessWidget {
 
 class ExperienceTile extends StatelessWidget {
   final ExperienceData exp;
+
   const ExperienceTile({
     Key? key,
     required this.size,
@@ -261,14 +264,18 @@ class ExperienceTile extends StatelessWidget {
                         height: 2,
                         // width:275,
                         color: exp.color,
-                        constraints: BoxConstraints(maxWidth: exp.info.split('\n').fold(0, (len, element) => 
-                          element.length*7 > len ? element.length.toDouble()*7 : len
-                          // if(element.length > len){
-                          //   element.length.toDouble(),
-                          // }else{
-                          //   len
-                          // }
-                        )),
+                        constraints: BoxConstraints(
+                            maxWidth: exp.info.split('\n').fold(
+                                0,
+                                (len, element) => element.length * 7 > len
+                                    ? element.length.toDouble() * 7
+                                    : len
+                                // if(element.length > len){
+                                //   element.length.toDouble(),
+                                // }else{
+                                //   len
+                                // }
+                                )),
                       ),
                       //if(exp.info != null)
                       Container(
@@ -295,6 +302,7 @@ class ExperienceTile extends StatelessWidget {
 class HeaderRow extends StatelessWidget {
   final IconData icon;
   final String heading;
+
   const HeaderRow({Key? key, required this.icon, required this.heading})
       : super(key: key);
 

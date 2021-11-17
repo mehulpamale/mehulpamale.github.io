@@ -7,6 +7,7 @@ import 'package:url_launcher/url_launcher.dart';
 class BlogScreen extends StatelessWidget {
   void _launchURL(String _url) async =>
       await canLaunch(_url) ? await launch(_url) : print('Cant launch $_url');
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -36,7 +37,10 @@ class BlogScreen extends StatelessWidget {
                 margin: EdgeInsets.all(20),
                 child: Text(
                   "Blog",
-                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold,color: Colors.white),
+                  style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                 ),
               ),
             ),
@@ -64,7 +68,8 @@ class BlogScreen extends StatelessWidget {
                           margin: EdgeInsets.all(15),
                           elevation: 30,
                           color: blog.bgColor,
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)),
                           // alignment: Alignment.center,
                           // decoration: BoxDecoration(
                           //   borderRadius: BorderRadius.circular(15),
@@ -85,8 +90,9 @@ class BlogScreen extends StatelessWidget {
                               Container(
                                 padding: const EdgeInsets.all(10.0),
                                 decoration: BoxDecoration(
-                                  border: Border(bottom: BorderSide(color: Colors.black12,width: 1))
-                                ),
+                                    border: Border(
+                                        bottom: BorderSide(
+                                            color: Colors.black12, width: 1))),
                                 child: Text(
                                   blog.name,
                                   style: TextStyle(
@@ -98,11 +104,12 @@ class BlogScreen extends StatelessWidget {
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(15.0),
-                                child: Text(blog.details,
+                                child: Text(
+                                  blog.details,
                                   style: TextStyle(
-                                      color: Colors.grey[900],
-                                      fontSize: 13,
-                                      ),
+                                    color: Colors.grey[900],
+                                    fontSize: 13,
+                                  ),
                                   softWrap: true,
                                   textAlign: TextAlign.justify,
                                 ),
@@ -132,7 +139,6 @@ class BlogScreen extends StatelessWidget {
                                             "https://twitter.com/share?url=${blog.url}&text=${blog.name}&via=tushargautam.com&hashtags=hello,there",
                                         icon: FontAwesomeIcons.facebook,
                                         color: Colors.indigo),
-
                                   ],
                                 ),
                               )
@@ -161,8 +167,10 @@ class SocialButton extends StatelessWidget {
       required this.url,
       required this.icon,
       required this.color});
+
   void _launchURL(String _url) async =>
       await canLaunch(_url) ? await launch(_url) : print('Cant launch $_url');
+
   @override
   Widget build(BuildContext context) {
     return Tooltip(

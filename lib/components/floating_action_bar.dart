@@ -113,6 +113,7 @@ class _FloatingActionBarState extends State<FloatingActionBar>
 
   Size size = Size(0, 0);
   int actionBarItemsCount = screensData.length;
+
   void moveListToIndex(int index,
       {int duration = 1000, Curve curve = Curves.easeInOut}) {
     if (maxScroll == 1) {
@@ -149,6 +150,7 @@ class _FloatingActionBarState extends State<FloatingActionBar>
 
   int roundedCurrentScreenIndex = 0;
   double preciseCurrentScreenIndex = 0;
+
   void setCurrentScreenIndex() {
     if (maxScroll == 1) {
       setState(() {
@@ -195,6 +197,7 @@ class _FloatingActionBarState extends State<FloatingActionBar>
 
   //OnHover Effect
   int hoveredIndex = -1;
+
   void actionBarItemHovered(bool hovered, int index) {
     if (!hovered) {
       setState(() {
@@ -239,7 +242,8 @@ class _FloatingActionBarState extends State<FloatingActionBar>
                 alignment: Alignment.centerRight,
                 child: Container(
                     height: widget.size.height / 1.5,
-                    width: 70, //size.width * 0.1,
+                    width: 70,
+                    //size.width * 0.1,
                     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                     //width: widget.size.width * 0.1,
                     //alignment: Alignment(0.95,0),

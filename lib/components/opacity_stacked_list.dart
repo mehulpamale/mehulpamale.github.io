@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class OpacityStackedList extends StatelessWidget {
@@ -38,7 +37,7 @@ class OpacityStackedList extends StatelessWidget {
                     return Opacity(
                       opacity: scale,
                       child: Transform(
-                        transform:  Matrix4.identity()..scale(scale,scale),
+                        transform: Matrix4.identity()..scale(scale, scale),
                         alignment: Alignment.bottomCenter,
                         child: Align(
                             heightFactor: 0.7,

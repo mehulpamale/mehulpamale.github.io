@@ -1,23 +1,33 @@
- import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
- class ExperienceData{
+class ExperienceData {
   final String organisation;
   final String jobTitle;
   final String info;
   final String timeSpan;
   final Color color; //date span as string ,e.g- July 2019 - Aug 2021
 
-  const ExperienceData({required this.organisation, required this.jobTitle, required this.timeSpan, this.info="",this.color = Colors.white70});
+  const ExperienceData(
+      {required this.organisation,
+      required this.jobTitle,
+      required this.timeSpan,
+      this.info = "",
+      this.color = Colors.white70});
 }
 
- class EducationData{
+class EducationData {
   final String degree;
   final String college;
   final String timeSpan;
   final Color color; //date span as string ,e.g- July 2019 - Aug 2021
   final Color fontColor;
 
-  const EducationData({required this.degree, required this.college, required this.timeSpan, this.color = Colors.white70, this.fontColor = Colors.black});
+  const EducationData(
+      {required this.degree,
+      required this.college,
+      required this.timeSpan,
+      this.color = Colors.white70,
+      this.fontColor = Colors.black});
 }
 
 class SkillsFormat {
@@ -59,18 +69,15 @@ class ProjectsData {
   final String? image;
 
   const ProjectsData(
-      {
-      required this.project,
+      {required this.project,
       required this.aboutProject,
       required this.duration,
       this.url,
       this.image = 'https://image.flaticon.com/icons/png/128/1005/1005142.png',
-      this.sourceUrl
-      });
+      this.sourceUrl});
 }
 
-
-class ContactClass{
+class ContactClass {
   final String contactName;
   final IconData icon;
   final String url;
@@ -78,14 +85,26 @@ class ContactClass{
   final Color textColor;
   final Color bgColor;
 
-  const ContactClass({required this.contactName, required this.icon, required this.url, this.iconColor = Colors.black, this.textColor = Colors.black,this.bgColor=Colors.white70});
+  const ContactClass(
+      {required this.contactName,
+      required this.icon,
+      required this.url,
+      this.iconColor = Colors.black,
+      this.textColor = Colors.black,
+      this.bgColor = Colors.white70});
 }
-class BlogClass{
+
+class BlogClass {
   final String name;
   final String details;
   final String url;
   final Color textColor;
   final Color bgColor;
 
-  const BlogClass({required this.name, required this.url, this.textColor = Colors.black,this.bgColor=Colors.white, required this.details});
+  const BlogClass(
+      {required this.name,
+      required this.url,
+      this.textColor = Colors.black,
+      this.bgColor = Colors.white,
+      required this.details});
 }

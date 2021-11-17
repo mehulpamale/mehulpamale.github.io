@@ -55,11 +55,6 @@ _GridTier _currentSize(BuildContext context) {
   }
 }
 
-
-
-
-
-
 class ResponsiveGridRow extends StatelessWidget {
   final List<ResponsiveGridCol> children;
   final CrossAxisAlignment crossAxisAlignment;
@@ -76,7 +71,13 @@ class ResponsiveGridRow extends StatelessWidget {
       {required this.children,
       this.crossAxisAlignment = CrossAxisAlignment.start,
       this.mainAxisAlignment = MainAxisAlignment.start,
-      this.rowSegments = 12,this.height,this.width,this.decoration,this.shrinkChildren = false,this.constraints,this.returnExpanded = false});
+      this.rowSegments = 12,
+      this.height,
+      this.width,
+      this.decoration,
+      this.shrinkChildren = false,
+      this.constraints,
+      this.returnExpanded = false});
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +108,7 @@ class ResponsiveGridRow extends StatelessWidget {
     });
 
     if (accumulatedWidth >= 0) {
-      if (accumulatedWidth < rowSegments && this.shrinkChildren){
+      if (accumulatedWidth < rowSegments && this.shrinkChildren) {
         cols.add(Spacer(
           flex: rowSegments - accumulatedWidth,
         ));
@@ -151,7 +152,7 @@ class ResponsiveGridCol extends Container {
     this.alignment,
     this.returnExpanded = false,
     this.decoration,
-  })  : super() {
+  }) : super() {
     _config[_GridTier.xs.index] = xs;
     _config[_GridTier.sm.index] = sm ?? _config[_GridTier.xs.index];
     _config[_GridTier.md.index] = md ?? _config[_GridTier.sm.index];
@@ -167,16 +168,15 @@ class ResponsiveGridCol extends Container {
   Widget build(BuildContext context) {
     return Expanded(
       flex: currentConfig(context) ?? 1,
-      child: this.returnExpanded ? child : Container(
-        alignment: this.alignment,
-        decoration: this.decoration,
-        child: child),
+      child: this.returnExpanded
+          ? child
+          : Container(
+              alignment: this.alignment,
+              decoration: this.decoration,
+              child: child),
     );
   }
 }
-
-
-
 
 class StaggeredResponsiveGridRow extends StatelessWidget {
   final List<StaggeredResponsiveGridCol> children;
@@ -194,7 +194,13 @@ class StaggeredResponsiveGridRow extends StatelessWidget {
       {required this.children,
       this.crossAxisAlignment = CrossAxisAlignment.start,
       this.mainAxisAlignment = MainAxisAlignment.start,
-      this.rowSegments = 12,this.height,this.width,this.decoration,this.shrinkChildren = false,this.constraints,this.returnExpanded = false});
+      this.rowSegments = 12,
+      this.height,
+      this.width,
+      this.decoration,
+      this.shrinkChildren = false,
+      this.constraints,
+      this.returnExpanded = false});
 
   @override
   Widget build(BuildContext context) {
@@ -222,20 +228,37 @@ class StaggeredResponsiveGridRow extends StatelessWidget {
         accumulatedWidth = 0;
       }
       //
-      if(rows.length > 0){
+      if (rows.length > 0) {
         var rowAboveHeight = rowKeys.last.currentContext?.size?.height ?? 0;
         var corresPondingChild = rows.last.children[cols.length];
         double colAboveHeight;
-        if(corresPondingChild.runtimeType.toString() == 'StaggeredResponsiveGridCol'){
-          colAboveHeight = (corresPondingChild as StaggeredResponsiveGridCol).colKey.currentContext?.findRenderObject()?.paintBounds.size.height ?? 0;
-        }else{
-          colAboveHeight = ((corresPondingChild as Container).child as StaggeredResponsiveGridCol).colKey.currentContext?.findRenderObject()?.paintBounds.size.height ?? 0;
+        if (corresPondingChild.runtimeType.toString() ==
+            'StaggeredResponsiveGridCol') {
+          colAboveHeight = (corresPondingChild as StaggeredResponsiveGridCol)
+                  .colKey
+                  .currentContext
+                  ?.findRenderObject()
+                  ?.paintBounds
+                  .size
+                  .height ??
+              0;
+        } else {
+          colAboveHeight = ((corresPondingChild as Container).child
+                      as StaggeredResponsiveGridCol)
+                  .colKey
+                  .currentContext
+                  ?.findRenderObject()
+                  ?.paintBounds
+                  .size
+                  .height ??
+              0;
         }
         cols.add(Container(
-          transform: Matrix4.translationValues(0.0, (colAboveHeight - rowAboveHeight), 0.0),
+          transform: Matrix4.translationValues(
+              0.0, (colAboveHeight - rowAboveHeight), 0.0),
           child: col,
-          ));
-      }else{
+        ));
+      } else {
         cols.add(col);
       }
       accumulatedWidth += colWidth;
@@ -269,7 +292,6 @@ class StaggeredResponsiveGridRow extends StatelessWidget {
   }
 }
 
-
 class StaggeredResponsiveGridCol extends Container {
   final _config = <int?>[]..length = 5;
   final Widget child;
@@ -286,7 +308,7 @@ class StaggeredResponsiveGridCol extends Container {
     required this.child,
     this.alignment,
     this.returnExpanded = false,
-  })  : super() {
+  }) : super() {
     _config[_GridTier.xs.index] = xs;
     _config[_GridTier.sm.index] = sm ?? _config[_GridTier.xs.index];
     _config[_GridTier.md.index] = md ?? _config[_GridTier.sm.index];
@@ -303,15 +325,12 @@ class StaggeredResponsiveGridCol extends Container {
     return Container(
       key: this.colKey,
       //flex: currentConfig(context) ?? 1,
-      child: this.returnExpanded ? child : Container(
-        alignment: this.alignment,
-        child: child),
+      child: this.returnExpanded
+          ? child
+          : Container(alignment: this.alignment, child: child),
     );
   }
 }
-
-
-
 
 //
 // responsive grid list

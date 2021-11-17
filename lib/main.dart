@@ -1,9 +1,11 @@
 //import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/components/floating_action_bar.dart';
-import 'package:responsive_framework/responsive_framework.dart';
 import 'package:portfolio/data/primary.dart';
 import 'package:portfolio/data/screens_data.dart';
+import 'package:responsive_framework/responsive_framework.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 import 'data/screens_data.dart';
 
 void main() {
@@ -14,8 +16,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      builder: (context,widget) => ResponsiveWrapper.builder(
-        BouncingScrollWrapper.builder(context, widget!),
+      builder: (context, widget) => ResponsiveWrapper.builder(
+          BouncingScrollWrapper.builder(context, widget!),
           maxWidth: double.infinity,
           minWidth: 450,
           defaultScale: true,
@@ -27,7 +29,6 @@ class MyApp extends StatelessWidget {
             ResponsiveBreakpoint.autoScale(2460, name: "4K"),
           ],
           background: Container(color: Color(0xFFF5F5F5))),
-      
       debugShowCheckedModeBanner: false,
       title: data['AppTitle'],
       home: MyHomePage(),
@@ -41,20 +42,20 @@ class MyHomePage extends StatefulWidget {
 }
 
 ScrollController actionBarController = ScrollController();
-class _MyHomePageState extends State<MyHomePage> {
 
+class _MyHomePageState extends State<MyHomePage> {
   List<GlobalKey> widgetKeys = [];
 
   @override
   void initState() {
     super.initState();
-    for(var i=0 ; i < screensData.length; i++) {
-    widgetKeys.add(GlobalKey());
-  }
+    for (var i = 0; i < screensData.length; i++) {
+      widgetKeys.add(GlobalKey());
+    }
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
     actionBarController.dispose();
   }
@@ -85,21 +86,31 @@ class _MyHomePageState extends State<MyHomePage> {
           child: SingleChildScrollView(
             physics: BouncingScrollPhysics(),
             controller: actionBarController,
-            child: Column(children: [
-              ...screensData.map((item) => Container(
-                alignment: Alignment.topCenter,
-                key: widgetKeys[screensData.indexOf(item)],
-                child: item.widget,
-                )),
-            ],),
+            child: Column(
+              children: [
+                ...screensData.map((item) => Container(
+                      alignment: Alignment.topCenter,
+                      key: widgetKeys[screensData.indexOf(item)],
+                      child: item.widget,
+                    )),
+              ],
+            ),
           ),
         ),
         FloatingActionBar(
-            size: size,
-            itemKeys: widgetKeys,
-            actionBarController: actionBarController,
-            listItems: screensData,
-            ),
+          size: size,
+          itemKeys: widgetKeys,
+          actionBarController: actionBarController,
+          listItems: screensData,
+        ),
+        Container(
+          padding: EdgeInsets.only(left: 10, bottom: 50),
+          alignment: Alignment.bottomLeft,
+          child: FloatingActionButton.extended(
+              backgroundColor: Colors.white30,
+              onPressed: () async => await launch(resume_url),
+              label: Text('Resume')),
+        )
       ]),
     );
   }

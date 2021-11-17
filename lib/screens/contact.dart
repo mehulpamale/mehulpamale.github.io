@@ -4,7 +4,6 @@ import 'package:portfolio/components/responsive_grid.dart';
 import 'package:portfolio/data/primary.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
 class ContactScreen extends StatelessWidget {
   void _launchURL(String _url) async =>
       await canLaunch(_url) ? await launch(_url) : print('Cant launch $_url');
@@ -51,52 +50,52 @@ class ContactScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 ...ContactData.contacts.map((contact) => ResponsiveGridCol(
-                  //returnExpanded: true,
-                  //alignment: Alignment.center,
-                  //flex: 1,
-                  xs: 6,
-                  sm: 4,
-                  md: 3,
-                  lg: 2,
-                  child: Padding(
-                    padding: EdgeInsets.all(10),
-                    child: RawMaterialButton(
-                      // margin: EdgeInsets.all(10),
-                      fillColor: contact.bgColor,
-                      hoverColor: contact.bgColor,
-                      elevation: 10,
-                      hoverElevation: 15,
-                      animationDuration: Duration(milliseconds: 200),
-                      padding: EdgeInsets.all(10),
-                      // alignment: Alignment.center,
-                      onPressed: () {
-                        _launchURL(contact.url);
-                      },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: FaIcon(
-                              contact.icon,
-                              size: 50,
-                              color: contact.iconColor,
-                            ),
+                      //returnExpanded: true,
+                      //alignment: Alignment.center,
+                      //flex: 1,
+                      xs: 6,
+                      sm: 4,
+                      md: 3,
+                      lg: 2,
+                      child: Padding(
+                        padding: EdgeInsets.all(10),
+                        child: RawMaterialButton(
+                          // margin: EdgeInsets.all(10),
+                          fillColor: contact.bgColor,
+                          hoverColor: contact.bgColor,
+                          elevation: 10,
+                          hoverElevation: 15,
+                          animationDuration: Duration(milliseconds: 200),
+                          padding: EdgeInsets.all(10),
+                          // alignment: Alignment.center,
+                          onPressed: () {
+                            _launchURL(contact.url);
+                          },
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: FaIcon(
+                                  contact.icon,
+                                  size: 50,
+                                  color: contact.iconColor,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  contact.contactName,
+                                  style: TextStyle(
+                                      color: contact.textColor,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              )
+                            ],
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              contact.contactName,
-                              style: TextStyle(
-                                  color: contact.textColor,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          )
-                        ],
+                        ),
                       ),
-                    ),
-                  ),
-                )),
+                    )),
               ],
             ),
           ],
